@@ -9,7 +9,7 @@ kubectl apply -f k8s/hpa.yaml
 Generate load against the Globomantics Service so CPU usage rises and the HPA scales the Deployment up. Leave this running in one terminal:
 
 ```bash
-kubectl run -i --rm --tty load-generator --image=busybox:1.36 --restart=Never -- /bin/sh -c "while true; do wget -q -O- http://globomantics/; done"
+kubectl run -i --rm --tty load-generator --image=busybox:1.36 --restart=Never --command -- sh -c "while true; do wget -q -O- http://globomantics/; done"
 ```
 
 In another terminal, watch the HPA react:
