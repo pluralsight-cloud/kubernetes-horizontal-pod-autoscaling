@@ -1,0 +1,11 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: globomantics
+  labels:
+    app: globomantics
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: globomantics
